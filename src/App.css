@@ -1,3 +1,5 @@
+@import url(https://fonts.google.com/specimen/Fredoka+One?query=fredoka+one&sidebar.open=true&selection.family=Fredoka+One|Lato);
+
 #trip-list {
   border-radius: 0vh;
   display: grid;
@@ -6,4 +8,13 @@
   grid-template-columns: 30% 30% 30%;
   column-gap: 10px;
   row-gap: 10px;
+}
+
+body {
+  background-color: #fcfcfc;
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  font-family: 'Fredoka One', sans-serif;
 }

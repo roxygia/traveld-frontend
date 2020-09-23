@@ -1,7 +1,27 @@
-#logo {
+#logo-image {
     width: 400px;
     height: 200px;
     background-image: url('./traveld-logo.PNG');
     background-size: cover;
+    align-items: center;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
 }
 
+nav { 
+    margin: 0;
+    padding: 20px;
+    text-align: left;
+}
+
+nav a {
+    display: inline;
+    text-decoration: none;
+    color: #8bd2ea; 
+    padding: 0px 0px 0px 20px; 
+}
+
+nav a:hover {
+    color: #41b3dc; 
+}
