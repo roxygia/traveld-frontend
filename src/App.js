@@ -14,7 +14,7 @@ export default function App(){
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/trip">
+          <Route path="/trip/:id">
             <TripPage />
           </Route>
         </Switch>

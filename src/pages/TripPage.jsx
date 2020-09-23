@@ -1,18 +1,31 @@
-import React from "react";
-import { oneTrip } from "../data";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function TripPage() {
+    const [tripData, setTripData] = useState({ pledges: [] });
+    const { id } = useParams();
+
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_URL}trips/${id}`)
+        .then((results) => {
+        return results.json();
+        })
+        .then((data) => {
+        setTripData(data);
+        });
+    }, [id]);
+
     return (
     <div>
-        <h2>{oneTrip.title}</h2>
-        <h3>Created at: {oneTrip.date_created}</h3>
-        <h3>Status: {oneTrip.is_open}</h3>
+        <h2>{tripData.title}</h2>
+        <h3>Created at: {tripData.date_created}</h3>
+        <h3>{`Status: ${tripData.is_open}`}</h3>
         <h3>Pledges:</h3>
         <ul>
-            {oneTrip.pledges.map((pledgeData, key) => {
+            {tripData.pledges.map((pledgeData) => {
                 return ( 
                     <li>
-                        {pledgeData.amount} from {pledgeData.trip_mate}
+                       {pledgeData.amount} from {pledgeData.trip_mate}
                     </li>
                 );
             })}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { allTrips } from "../data";
+//import { allTrips } from "../data";
 import TripCard from "../components/tripCard/tripCard"
 
 function HomePage() {

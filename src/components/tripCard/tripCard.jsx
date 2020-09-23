@@ -9,8 +9,8 @@ function TripCard(props) {
     //template
     return (
         <div className="trip-card">
-            <Link to="/trip">
-                <img src={tripData.image}/>
+            <Link to={`/trip/${tripData.id}`}>
+                <img alt="Trip" src={tripData.image}/>
                 <h3>{tripData.title}</h3>
             </Link>
         </div>
