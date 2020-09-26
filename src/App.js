@@ -4,6 +4,7 @@ import Nav from "./components/nav/Nav";
 import HomePage from "./pages/HomePage";
 import TripPage from "./pages/TripPage";
 import LoginPage from "./pages/LoginPage";
+import RegisterPage from "./pages/RegisterPage";
 import "./App.css";
 
 export default function App(){
@@ -20,6 +21,9 @@ export default function App(){
           </Route>
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route path="/users">
+            <RegisterPage />
           </Route>
         </Switch>
       </div>

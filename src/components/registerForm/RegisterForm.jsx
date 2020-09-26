@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
-import "./LoginForm.css"
+import "./RegisterForm.css"
 
-function LoginForm() {
+function RegisterForm() {
     //variables 
     const [credentials, setCredentials] = useState({
         username: "",
-        password: "",
+        email: "",
     });
     const history = useHistory();
 
@@ -20,9 +20,9 @@ function LoginForm() {
         }))
     }
 
-    const postData = async() => {
+    const postUser = async() => {
         const response = await fetch
-        (`${process.env.REACT_APP_API_URL}api-token-auth/`, 
+        (`${process.env.REACT_APP_API_URL}users/`, 
         {
             method: "post",
             headers: {
@@ -34,11 +34,25 @@ function LoginForm() {
         return response.json();
     }
 
+    // const postData = async() => {
+    //     const response = await fetch
+    //     (`${process.env.REACT_APP_API_URL}api-token-auth/`, 
+    //     {
+    //         method: "post",
+    //         headers: {
+    //             "Content-Type": "application/json",
+    //         },
+    //         body: JSON.stringify(credentials),
+    //     }
+    //     );
+    //     return response.json();
+    // }
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        if(credentials.username && credentials.password) {
-         postData().then((response) => {
-                window.localStorage.setItem("token", response.token);
+        if(credentials.username && credentials.email) {
+         postUser().then((request) => {
+                window.localStorage.setItem("user", request.username);
                 history.push("/");
             });
         }
@@ -47,8 +61,8 @@ function LoginForm() {
 
     //template
     return (
-        <div className="login-page">
-            <form className="login-form">
+        <div className="form-page">
+            <form >
                 <div>
                     <label htmlFor="username">Username:</label>
                     <input 
@@ -59,19 +73,27 @@ function LoginForm() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="password">Password:</label>
+                    <label htmlFor="email">E-mail:</label>
                     <input 
-                        type="password" 
-                        id="password" placeholder="Enter password" 
+                        type="email" 
+                        id="email" placeholder="Enter email" 
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit" onClick={handleSubmit}>Login</button>
-                <p className="message">Not registered?</p>
-                <Link to="/users">Create an account</Link>
+                <div>
+                    <label htmlFor="password">Password:</label>
+                    <input 
+                        type="password" 
+                        id="password" placeholder="Enter Password" 
+                        onChange={handleChange}
+                    />
+                </div>
+                <button type="submit" onClick={handleSubmit}>Register</button>
+                <p className="message">Already registered?</p>
+                <Link to="/login">Login</Link>
             </form>
         </div>
     )
 }
 
-export default LoginForm;
+export default RegisterForm;
