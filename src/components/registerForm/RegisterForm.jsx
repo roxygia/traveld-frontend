@@ -7,6 +7,7 @@ function RegisterForm() {
     const [credentials, setCredentials] = useState({
         username: "",
         email: "",
+        password: "",
     });
     const history = useHistory();
 
@@ -53,7 +54,7 @@ function RegisterForm() {
         if(credentials.username && credentials.email) {
          postUser().then((request) => {
                 window.localStorage.setItem("user", request.username);
-                history.push("/");
+                history.push("/login");
             });
         }
     }
