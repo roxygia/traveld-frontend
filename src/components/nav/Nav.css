@@ -1,9 +1,15 @@
+
+.logo {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+}
 #logo-image {
     width: 400px;
     height: 200px;
     background-image: url('./traveld-logo.PNG');
     background-size: cover;
-    align-items: center;
+    align-self: center;
     border-radius: 50%;
     overflow: hidden;
     margin-top: -6px;
@@ -13,6 +19,8 @@ nav {
     margin: 0;
     padding: 20px;
     text-align: left;
+    display: flex;
+    flex-flow: row;
 }
 
 nav a {

@@ -10,8 +10,16 @@
     object-fit: cover;
 }
 
-.trip-card h3 {
-    text-decoration: none;
+.trip-card a h3 {
     color: #8bd2ea; 
+    margin-left: 20px;
+}
+
+.trip-card a {
+    text-decoration: none;
+}
+
+.trip-card a h3:hover {
+    color: lightblue; 
     margin-left: 20px;
 }

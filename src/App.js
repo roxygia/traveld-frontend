@@ -3,7 +3,8 @@ import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 import Nav from "./components/nav/Nav";
 import HomePage from "./pages/HomePage";
 import TripPage from "./pages/TripPage";
-import "./App.css"
+import LoginPage from "./pages/LoginPage";
+import "./App.css";
 
 export default function App(){
   return (
@@ -16,6 +17,9 @@ export default function App(){
           </Route>
           <Route path="/trip/:id">
             <TripPage />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
           </Route>
         </Switch>
       </div>
