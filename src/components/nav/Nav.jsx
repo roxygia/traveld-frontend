@@ -4,6 +4,12 @@ import "./Nav.css"
 
 
 function Nav() {
+    //variables
+
+
+
+
+    //template
     return (
         <div>
             <nav>

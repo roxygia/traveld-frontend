@@ -35,25 +35,11 @@ function RegisterForm() {
         return response.json();
     }
 
-    // const postData = async() => {
-    //     const response = await fetch
-    //     (`${process.env.REACT_APP_API_URL}api-token-auth/`, 
-    //     {
-    //         method: "post",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify(credentials),
-    //     }
-    //     );
-    //     return response.json();
-    // }
-
     const handleSubmit = (e) => {
         e.preventDefault();
         if(credentials.username && credentials.email) {
          postUser().then((request) => {
-                window.localStorage.setItem("user", request.username);
+                window.localStorage.setItem("username", request.username);
                 history.push("/login");
             });
         }
@@ -74,7 +60,7 @@ function RegisterForm() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="email">E-mail:</label>
+                    <label htmlFor="email">Email:</label>
                     <input 
                         type="email" 
                         id="email" placeholder="Enter email" 
