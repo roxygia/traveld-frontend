@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import TripPage from "./pages/TripPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
+import NewTripPage from "./pages/NewTripPage";
 import "./App.css";
 
 export default function App(){
@@ -24,6 +25,9 @@ export default function App(){
           </Route>
           <Route path="/users">
             <RegisterPage />
+          </Route>
+          <Route path="/trips">
+            <NewTripPage />
           </Route>
         </Switch>
       </div>

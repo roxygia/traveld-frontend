@@ -6,13 +6,11 @@
 }
 #logo-image {
     width: 400px;
-    height: 200px;
+    height: 120px;
     background-image: url('./traveld-logo.PNG');
     background-size: cover;
     align-self: center;
-    border-radius: 50%;
     overflow: hidden;
-    margin-top: -6px;
 }
 
 nav { 

@@ -13,7 +13,7 @@ function Nav() {
     return (
         <div>
             <nav>
-                <Link id="nav-link" to="/trip">New Trip</Link>
+                <Link id="nav-link" to="/trips">New Trip</Link>
                 <Link id="home-link" to="/">Home </Link>
                 <Link id="nav-link" to="/login">Login</Link>   
             </nav>
