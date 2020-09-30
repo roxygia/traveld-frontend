@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
 import "./TripForm.css"
-
+import PickDate from "../dateTime/DateTime"
 
 function TripForm() {
     //variables 
@@ -117,13 +117,14 @@ function TripForm() {
                         onChange={handleChange}
                     />
                 </div>
+
                 <div>
                     <label htmlFor="start_date">Start date for the trip:</label>
-                    <input 
-                        type="text" 
-                        id="start_date" 
-                        onChange={handleChange}
+                    <PickDate 
+                    id="start_date"
+                    onChange={handleChange}
                     />
+    
                 </div>
                 <button type="submit" onClick={handleSubmit}>Create a Trip!</button>
             </form>
