@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom"
 import "./LoginForm.css"
-import { setStorage, isAuthenticated, clearStorage } from "../../utilities/localStorage"
+import { setStorage, isAuthenticated } from "../../utilities/localStorage"
 
 function LoginForm() {
     //variables 
