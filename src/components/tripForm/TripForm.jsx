@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom"
 import "./TripForm.css"
-import PickDate from "../dateTime/DateTime"
+//import PickDate from "../dateTime/DateTime"
+import { getStorage, isAuthenticated } from "../../utilities/localStorage";
 
 function TripForm() {
     //variables 
@@ -36,6 +37,7 @@ function TripForm() {
             method: "post",
             headers: {
                 "Content-Type": "application/json",
+                "Authorization": `Token ${getStorage("token")}`
             },
             body: JSON.stringify(trip),
         }
@@ -44,12 +46,24 @@ function TripForm() {
     }
 
     const handleSubmit = (e) => {
+        console.log(trip)
         e.preventDefault();
+
+        // trip.title = "hello";
+        // trip.itinerary = "testing";
+        // trip.goal = 4;
+        // trip.image = "https://via.placeholder.com/300.jpg";
+        // trip.cost= 400;
+        // trip.duration = 4;
+        // trip.start_date = "2020-06-20T14:28:23.382748Z";
+
+        trip.date_created = "2020-06-20T14:28:23.382748Z";
+
         if(trip.title && trip.goal) {
          postData().then((response) => {
-                if (response.token != null){
-                    history.push("/");
-                } 
+            if (isAuthenticated()){
+                history.push("/");
+            } 
             });
         }
     }
@@ -113,18 +127,22 @@ function TripForm() {
                     <label htmlFor="duration">Duration of the trip:</label>
                     <input 
                         type="number" 
-                        id="cost" placeholder="Enter number of days for the trip" 
+                        id="duration" placeholder="Enter number of days for the trip" 
                         onChange={handleChange}
                     />
                 </div>
 
                 <div>
                     <label htmlFor="start_date">Start date for the trip:</label>
-                    <PickDate 
+                    {/* <PickDate 
                     id="start_date"
                     onChange={handleChange}
+                    />*/}
+                    <input 
+                        type="text" 
+                        id="start_date" placeholder="Enter start date" 
+                        onChange={handleChange}
                     />
-    
                 </div>
                 <button type="submit" onClick={handleSubmit}>Create a Trip!</button>
             </form>
