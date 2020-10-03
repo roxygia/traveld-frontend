@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom"
 import "./TripForm.css"
-//import PickDate from "../dateTime/DateTime"
 import { getStorage, isAuthenticated } from "../../utilities/localStorage";
 
 function TripForm() {
@@ -48,14 +47,16 @@ function TripForm() {
     const handleSubmit = (e) => {
         console.log(trip)
         e.preventDefault();
+        console.log(trip.is_open);
+        console.log(trip.start_date);
 
-        trip.title = "hello2";
-        trip.itinerary = "testing";
-        trip.goal = 4;
-        trip.image = "https://via.placeholder.com/300.jpg";
-        trip.cost= 400;
-        trip.duration = 4;
-        trip.start_date = "2020-06-20T14:28:23.382748Z";
+        // trip.title = "hello3";
+        // trip.itinerary = "testing";
+        // trip.goal = 4;
+        // trip.image = "https://via.placeholder.com/300.jpg";
+        // trip.cost= 400;
+        // trip.duration = 4;
+        // trip.start_date = "2020-06-20T14:28:23.382748Z";
         
         const createDate = new Date();
         trip.date_created = createDate.toJSON();
@@ -115,14 +116,6 @@ function TripForm() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="is_open">Is open for pledges:</label>
-                    <input 
-                        type="checkbox" 
-                        id="is_open" 
-                        onChange={handleChange}
-                    />
-                </div>
-                <div>
                     <label htmlFor="cost">Cost per person:</label>
                     <input 
                         type="number" 
@@ -141,12 +134,9 @@ function TripForm() {
 
                 <div>
                     <label htmlFor="start_date">Start date for the trip:</label>
-                    {/* <PickDate 
-                    id="start_date"
-                    onChange={handleChange}
-                    />*/}
+
                     <input 
-                        type="text" 
+                        type="datetime-local" 
                         id="start_date" placeholder="Enter start date" 
                         onChange={handleChange}
                     />
