@@ -20,13 +20,13 @@ export default function App(){
           <Route path="/trip/:id">
             <TripPage />
           </Route>
-          <Route path="/login">
+          <Route path="/login/">
             <LoginPage />
           </Route>
-          <Route path="/users">
+          <Route path="/users/">
             <RegisterPage />
           </Route>
-          <Route path="/trips">
+          <Route path="/trips/">
             <NewTripPage />
           </Route>
         </Switch>

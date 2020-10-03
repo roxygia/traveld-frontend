@@ -10,7 +10,7 @@ function TripForm() {
         title: "",
         itinerary: "",
         goal: null,
-        image: "",
+        image: "https://via.placeholder.com/300.jpg",
         is_open: true,
         date_created: "",
         cost: null,
@@ -49,17 +49,25 @@ function TripForm() {
         console.log(trip)
         e.preventDefault();
 
-        // trip.title = "hello";
-        // trip.itinerary = "testing";
-        // trip.goal = 4;
-        // trip.image = "https://via.placeholder.com/300.jpg";
-        // trip.cost= 400;
-        // trip.duration = 4;
-        // trip.start_date = "2020-06-20T14:28:23.382748Z";
+        trip.title = "hello2";
+        trip.itinerary = "testing";
+        trip.goal = 4;
+        trip.image = "https://via.placeholder.com/300.jpg";
+        trip.cost= 400;
+        trip.duration = 4;
+        trip.start_date = "2020-06-20T14:28:23.382748Z";
+        
+        const createDate = new Date();
+        trip.date_created = createDate.toJSON();
+        console.log(trip.date_created);
 
-        trip.date_created = "2020-06-20T14:28:23.382748Z";
-
-        if(trip.title && trip.goal) {
+        if(trip.title && 
+            trip.goal && 
+            trip.itinerary && 
+            trip.image && 
+            trip.cost && 
+            trip.duration && 
+            trip.start_date) {
          postData().then((response) => {
             if (isAuthenticated()){
                 history.push("/");
@@ -112,7 +120,6 @@ function TripForm() {
                         type="checkbox" 
                         id="is_open" 
                         onChange={handleChange}
-                        label="yes"
                     />
                 </div>
                 <div>
