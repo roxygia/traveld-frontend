@@ -40,6 +40,7 @@ function TripPage() {
         <div className="card-trip-infos">
             <div>
             <p>Created on: {transformDate(tripData.date_created)}</p>
+            <p>Organiser Id: {tripData.organiser}</p>
             <h2>{tripData.title}</h2>
             <p>Start Date: {transformDate(tripData.start_date)}</p>
             <p>Duration: {tripData.duration} day(s)</p>
