@@ -5,6 +5,7 @@
     width: 100%;
     border: 1px solid lightgrey;
     box-shadow: 1px 0px 1px gray;
+    background: white;
 }
 
 .trip-card img {
@@ -27,3 +28,12 @@
     color: #18E0E6; 
     margin-left: 20px;
 }
+
+.trip-card:hover {
+    webkit-transform: scale(1.1);
+   -moz-transform: scale(1.1);
+   -ms-transform: scale(1.1);
+   -o-transform: scale(1.1);
+   transform: scale(1.1);
+   transition: 0.9s;
+ }

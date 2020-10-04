@@ -32,13 +32,14 @@ function TripPage() {
             <h2>{tripData.title}</h2>
             <p>Created on: {transformDate(tripData.date_created)}</p>
             <p>Trip Start Date: {transformDate(tripData.start_date)}</p>
-            <p>{`Trip Status Open -   ${tripData.is_open}`}</p>
-            <h2>Pledges:</h2>
+            <p>{`Trip Status Open:   ${tripData.is_open}`}</p>
+            <hr/>
+            <h2>Pledges</h2>
             <ul>
                 {tripData.pledges.map((pledgeData) => {
                     return ( 
                         <li>
-                        {pledgeData.amount} from {pledgeData.trip_mate}
+                        <p>{pledgeData.amount} Trip Mate(s) from User {pledgeData.trip_mate} </p>
                         </li>
                     );
                 })}
