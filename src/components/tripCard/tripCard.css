@@ -1,4 +1,7 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 .trip-card {
+    font-family: "Roboto", sans-serif;
     width: 100%;
     border: 1px solid lightgrey;
     box-shadow: 1px 0px 1px gray;
@@ -11,8 +14,9 @@
 }
 
 .trip-card a h3 {
-    color: #8bd2ea; 
+    color: #555; 
     margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .trip-card a {
@@ -20,6 +24,6 @@
 }
 
 .trip-card a h3:hover {
-    color: lightblue; 
+    color: #18E0E6; 
     margin-left: 20px;
 }

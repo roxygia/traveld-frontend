@@ -22,11 +22,18 @@ function HomePage() {
 
     //template
     return (
-    <div id="trip-list">
-        {tripList.map((tripData, key) => {
-            return <TripCard key={key} tripData={tripData} />;
-            })}
-   </div>
+    <div> 
+        <section className="destinations">
+            <h3 className="title">Find travel mates:</h3>
+            <p>Ready to join a new adventure with likeminded people? Join a trip or create your own.</p>
+            <hr></hr>
+        </section>
+        <div id="trip-list">
+            {tripList.map((tripData, key) => {
+                return <TripCard key={key} tripData={tripData} />;
+                })}
+        </div>
+    </div>
     );
    }
    

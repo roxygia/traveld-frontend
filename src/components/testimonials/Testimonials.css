@@ -1,0 +1,21 @@
+/*Testimonials*/
+
+.testimonials .quote {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 1;
+    margin: 40px 0 25px;
+}
+
+@media (max-width: 800px) {
+    .testimonials .quote {
+        font-size: 18px;
+        margin: 15px 0;
+
+    }
+
+    .testimonials .author {
+        font-size: 14px;
+    }
+
+}

@@ -2,15 +2,21 @@
 .logo {
     display: flex;
     justify-content: center;
-    width: 90%;
+    width: 100%;
+    background-color: #18E0E6;
+    padding-bottom: 20px;
 }
 #logo-image {
     width: 400px;
-    height: 120px;
-    background-image: url('./traveld-logo.PNG');
-    background-size: cover;
+    height: 100px;
+    background-image: url('./traveld-logo-blue.PNG');
+    background-size: contain;
     align-self: center;
     overflow: hidden;
+}
+
+.header {
+    background-color: #18E0E6 ;
 }
 
 nav { 
@@ -19,15 +25,49 @@ nav {
     text-align: left;
     display: flex;
     flex-flow: row;
+    background-color: #18E0E6;
 }
 
 nav a {
     display: inline;
     text-decoration: none;
-    color: #8bd2ea; 
+    color: #ffffff; 
     padding: 0px 0px 0px 20px; 
 }
 
 nav a:hover {
-    color: #41b3dc; 
+    color: #555555; 
 }
+
+.background {
+    width: 100%;
+}
+
+#background-image {
+    background-image: url('./mountains-background.jpg');
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity:0.;
+    height: 400px;
+    background-size: cover;
+    z-index: -1;
+    background-color: #18E0E6;
+}
+
+@media (max-width: 600px) {
+    nav {
+        flex-direction: column;
+        padding: 0px;
+    }
+    .header {
+        padding: 10px
+    }
+    #logo-image {
+        margin-top: 10px;
+        background-repeat: no-repeat;
+        height: 10vh;
+    }
+}
+

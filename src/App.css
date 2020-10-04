@@ -4,8 +4,7 @@
   border-radius: 0vh;
   display: grid;
   padding: 8vh;
-  padding-top: 12vh;
-  grid-template-columns: 30% 30% 30%;
+  grid-template-columns: 33% 33% 33%;
   column-gap: 10px;
   row-gap: 10px;
 }
@@ -18,3 +17,88 @@ body {
 h1 {
   font-family: 'Fredoka One', sans-serif;
 }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font: normal 16px sans-serif;
+    color: #555;
+}
+
+ul, 
+nav {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #bbbbbb;
+}
+
+a:hover{
+    opacity: 1;
+}
+
+hr {
+
+    width: 60%;
+    height: 3px;
+    background-color: #18E0E6;
+    border: 0;
+    margin-bottom: 50px;
+}
+
+section h3.title {
+    margin-top: 180px;
+    text-transform: capitalize;
+    font: bold 32px "open Sans", sans-serif;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+section p {
+    max-width: 775;
+    line-height: 2;
+    padding: 0 20px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+a.btn {
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    background-color: #18E0E6;
+    opacity: 1;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 100px 80px 10px;
+}
+
+
+@media (max-width: 600px) {
+    section {
+        padding: 60px 10px 10px;
+    }
+
+    #trip-list {
+      padding: 3vh;
+      display: block;
+    }
+}
+
+
+
+
+
+
+
