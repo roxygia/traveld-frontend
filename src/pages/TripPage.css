@@ -7,7 +7,7 @@ body{
   .card-trip {
     align-self: center;
     width: 550px;
-    padding: 4% 0 0;
+    padding: 4% 0 2%;
     margin: 35px;
     overflow: hidden;
     background: white;
@@ -19,6 +19,11 @@ body{
     width: 100%;
     object-fit: cover;
   }
+
+  .card-trip > img:hover {
+    transform: scale(1.1);
+    transition: 0.9s;
+  }
   
   .card-trip h2 {
     font-size: 17px;
@@ -28,8 +33,7 @@ body{
   
   .card-trip p {
     font-size: 14px;
-
-    margin: 5px;
+    margin: 7px;
   }
   
   
@@ -47,4 +51,30 @@ body{
     top: -20px;
     width: 45px;
     border-radius: 50%;
+  }
+
+  ul {
+    padding-bottom: 30px;
+  }
+  #link {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #18E0E6;
+    height: 30px;
+    width: 100%;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+
+  }
+
+  #link:hover, #link:active,#link:focus {
+    background: #555;
+  }
+
+  .accent-line{
+    width: 60%;
+    margin-bottom: 20px;
   }

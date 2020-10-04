@@ -15,3 +15,5 @@ export function getStorage(name){
     return window.localStorage.getItem(name);
 }
 
+
+

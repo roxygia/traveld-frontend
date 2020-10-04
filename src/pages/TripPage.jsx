@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
+import { isAuthenticated } from "../utilities/localStorage";
 import "./TripPage.css"
 
 function TripPage() {
     const [tripData, setTripData] = useState({ pledges: [] });
     const { id } = useParams();
+
+       
+    const [isloggedin, setisloggedin] = useState(false);
+    const location = useLocation();
+
+    useEffect(() => {
+                isAuthenticated() ? setisloggedin(true) : setisloggedin(false);
+                }, [location]);
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_URL}trips/${id}`)
@@ -29,11 +38,19 @@ function TripPage() {
         <img src={tripData.image} alt="Trip Pic"></img>
         <div className="card-trip-infos">
             <div>
-            <h2>{tripData.title}</h2>
             <p>Created on: {transformDate(tripData.date_created)}</p>
-            <p>Trip Start Date: {transformDate(tripData.start_date)}</p>
-            <p>{`Trip Status Open:   ${tripData.is_open}`}</p>
-            <hr/>
+            <h2>{tripData.title}</h2>
+            <p>Start Date: {transformDate(tripData.start_date)}</p>
+            <p>Duration: {tripData.duration} day(s)</p>
+            <p>Cost: {tripData.cost} $</p>
+            <p>Min no of trip mates: {tripData.goal}</p>
+            <p>{`Trip open:   ${tripData.is_open}`}</p>
+
+            <h3>Itinerary  </h3>
+            <p>{tripData.itinerary}</p>
+            
+            
+            <hr className="accent-line"/>
             <h2>Pledges</h2>
             <ul>
                 {tripData.pledges.map((pledgeData) => {
@@ -43,7 +60,13 @@ function TripPage() {
                         </li>
                     );
                 })}
+                
             </ul>
+            {isloggedin ? (
+                <Link id="link" to="/login" >Join this trip!</Link>) 
+                : 
+                (<Link id="link" to="/login">Login to join this trip</Link>)}
+
          </div>
          </div>
     </div>
