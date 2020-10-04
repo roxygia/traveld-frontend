@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useLocation } from "react-router-dom";
-import { isAuthenticated } from "../utilities/localStorage";
+import { isAuthenticated, setStorage } from "../utilities/localStorage";
 import "./TripPage.css"
 
 function TripPage() {
@@ -29,6 +29,7 @@ function TripPage() {
     const transformDate = (date) => {
         var utcDate = new Date(date)
         var localDate = utcDate.toLocaleString();
+        setStorage("tripId", tripData.id)
         return localDate
     }
 
@@ -63,7 +64,8 @@ function TripPage() {
                 
             </ul>
             {isloggedin ? (
-                <Link id="link" to="/login" >Join this trip!</Link>) 
+                <Link id="link" to="/pledges" >Join this trip!</Link>
+                ) 
                 : 
                 (<Link id="link" to="/login">Login to join this trip</Link>)}
 
