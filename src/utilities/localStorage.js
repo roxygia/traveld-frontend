@@ -15,5 +15,10 @@ export function getStorage(name){
     return window.localStorage.getItem(name);
 }
 
+export function isOrganiser(organiser){
+    return (organiser === window.localStorage.getItem("name"))
+}
+
+
 
 

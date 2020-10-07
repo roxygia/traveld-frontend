@@ -1,25 +1,44 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom"
-import "./TripForm.css"
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom"
+import "./EditTripForm.css"
 import { getStorage, isAuthenticated } from "../../utilities/localStorage";
 
-function TripForm() {
+function EditTripForm(props) {
     //variables 
+    const {tripData} = props;
+
     const [trip, setTrip] = useState({
         title: "",
         itinerary: "",
         goal: null,
-        image: "https://via.placeholder.com/300.jpg",
+        image: "",
         is_open: true,
         date_created: "",
         cost: null,
         duration: null,
         start_date: "",
-
     });
     const history = useHistory();
+    const{id}=useParams();
 
-    
+    useEffect(() => {
+        if (tripData.title == null) return
+        console.log({tripData})
+        setTrip(
+            {
+                title: tripData.title,
+                itinerary: tripData.itinerary,
+                goal: tripData.goal,
+                image: tripData.image,
+                is_open: tripData.is_open,
+                date_created: tripData.date_created.substr(0, 19) ,
+                cost: tripData.cost,    
+                duration: tripData.duration,
+                start_date: tripData.start_date.substr(0, 19),
+                organiser: tripData.organiser,
+            }
+        )
+    }, [tripData])
 
     //method
     const handleChange = (e) => {
@@ -31,12 +50,12 @@ function TripForm() {
     }
     const postData = async() => {
         const response = await fetch
-        (`${process.env.REACT_APP_API_URL}trips/`, 
+        (`${process.env.REACT_APP_API_URL}trips/${id}`, 
         {
-            method: "post",
+            method: "put",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": `Token ${getStorage("token")}`
+                Authorization: `Token ${getStorage("token")}`
             },
             body: JSON.stringify(trip),
         }
@@ -50,32 +69,17 @@ function TripForm() {
         console.log(trip.is_open);
         console.log(trip.start_date);
 
-        // trip.title = "hello3";
-        // trip.itinerary = "testing";
-        // trip.goal = 4;
-        // trip.image = "https://via.placeholder.com/300.jpg";
-        // trip.cost= 400;
-        // trip.duration = 4;
-        // trip.start_date = "2020-06-20T14:28:23.382748Z";
         
         const createDate = new Date();
         trip.date_created = createDate.toJSON();
         console.log(trip.date_created);
 
-        if(trip.title && 
-            trip.goal && 
-            trip.itinerary && 
-            trip.image && 
-            trip.cost && 
-            trip.duration && 
-            trip.start_date) {
          postData().then((response) => {
             if (isAuthenticated()){
-                history.push("/");
+                history.push(`/trip/${id}`);
             } 
             });
         }
-    }
 
 
     //template
@@ -87,7 +91,7 @@ function TripForm() {
                     <input 
                         type="text" 
                         id="title" 
-                        placeholder="Enter trip title" 
+                        value={trip.title}
                         onChange={handleChange}
                     />
                 </div>
@@ -95,7 +99,8 @@ function TripForm() {
                     <label htmlFor="itinerary">Itinerary:</label>
                     <textarea 
                         type="text" 
-                        id="itinerary" placeholder="Enter trip Itinerary" 
+                        id="itinerary" 
+                        value={trip.itinerary}
                         onChange={handleChange}
                     />
                 </div>
@@ -103,7 +108,8 @@ function TripForm() {
                     <label htmlFor="number">Goal number of trip mates:</label>
                     <input 
                         type="number" 
-                        id="goal" placeholder="Enter required number of trip mates to go ahead" 
+                        id="goal" 
+                        value={trip.goal}
                         onChange={handleChange}
                     />
                 </div>
@@ -111,7 +117,8 @@ function TripForm() {
                     <label htmlFor="image">Trip Image:</label>
                     <input 
                         type="text" 
-                        id="image" placeholder="Enter a URL to an Image to use as thumbnail" 
+                        id="image" 
+                        value={trip.image}
                         onChange={handleChange}
                     />
                 </div>
@@ -119,7 +126,8 @@ function TripForm() {
                     <label htmlFor="cost">Cost per person:</label>
                     <input 
                         type="number" 
-                        id="cost" placeholder="Enter trip cost per person" 
+                        id="cost" 
+                        value={trip.cost}
                         onChange={handleChange}
                     />
                 </div>
@@ -127,7 +135,8 @@ function TripForm() {
                     <label htmlFor="duration">Duration of the trip:</label>
                     <input 
                         type="number" 
-                        id="duration" placeholder="Enter number of days for the trip" 
+                        id="duration" 
+                        value={trip.duration}
                         onChange={handleChange}
                     />
                 </div>
@@ -137,14 +146,15 @@ function TripForm() {
 
                     <input 
                         type="datetime-local" 
-                        id="start_date" placeholder="Enter start date" 
+                        id="start_date" 
+                        value={trip.start_date}
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit" onClick={handleSubmit}>Create a Trip!</button>
+                <button type="submit" onClick={handleSubmit}>Edit Trip</button>
             </form>
         </div>
     )
 }
 
-export default TripForm;
+export default EditTripForm;
