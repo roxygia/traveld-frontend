@@ -49,14 +49,6 @@ function TripForm() {
         e.preventDefault();
         console.log(trip.is_open);
         console.log(trip.start_date);
-
-        // trip.title = "hello3";
-        // trip.itinerary = "testing";
-        // trip.goal = 4;
-        // trip.image = "https://via.placeholder.com/300.jpg";
-        // trip.cost= 400;
-        // trip.duration = 4;
-        // trip.start_date = "2020-06-20T14:28:23.382748Z";
         
         const createDate = new Date();
         trip.date_created = createDate.toJSON();

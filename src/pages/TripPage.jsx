@@ -3,7 +3,7 @@ import { useParams, Link, useLocation } from "react-router-dom";
 import {
   isAuthenticated,
   setStorage,
-  isOrganiser,
+  isOrganiser, 
 } from "../utilities/localStorage";
 import "./TripPage.css";
 
@@ -32,8 +32,10 @@ function TripPage() {
     var utcDate = new Date(date);
     var localDate = utcDate.toLocaleString();
     setStorage("tripId", tripData.id);
+    setStorage("tripOrganiser", tripData.organiser);
     return localDate;
   };
+
 
   return (
     <div className="card-trip">
@@ -66,18 +68,25 @@ function TripPage() {
               );
             })}
           </ul>
-          {isOrganiser ? (
-            <Link id="link" to={`/trip/${id}/edit`}>
-              Edit trip!
-            </Link>
-          ) : isloggedin ? (
+
+          {isloggedin ? (
+            <div>
+              <Link id="link" to={`/trip/${id}/edit`}>
+                Edit trip!
+              </Link>
+              <Link id="link" to={`/trip/${id}/delete`}>
+                Delete trip!
+              </Link>
             <Link id="link" to="/pledges">
               Join this trip!
             </Link>
+            </div>
           ) : (
+            <div>
             <Link id="link" to="/login">
               Login to join this trip
             </Link>
+            </div>
           )}
         </div>
       </div>

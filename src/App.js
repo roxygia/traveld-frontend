@@ -8,7 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NewTripPage from "./pages/NewTripPage";
 import PledgePage from "./pages/PledgePage";
-
+import DeleteTripPage from "./pages/DeleteTripPage";
 import EditTripPage from './pages/EditTripPage';
 
 export default function App(){
@@ -20,8 +20,11 @@ export default function App(){
           <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/trip/:id/edit">
+          <Route exact path="/trip/:id/edit">
             <EditTripPage />
+          </Route>
+          <Route exact path="/trip/:id/delete">
+            <DeleteTripPage />
           </Route>
           <Route path="/trip/:id">
             <TripPage />
